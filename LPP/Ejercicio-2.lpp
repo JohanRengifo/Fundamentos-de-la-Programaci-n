@@ -1,1 +1,10 @@
-2
+entero nota
+inicio
+ escriba " digite una nota  "
+ lea nota
+ si (nota >= 3)y(nota <= 5)  entonces
+ escriba "aprobaste "
+ sino
+ escriba " eres un burro"
+ fin si  
+fin

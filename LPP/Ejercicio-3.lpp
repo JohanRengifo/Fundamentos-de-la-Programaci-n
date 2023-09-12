@@ -1,0 +1,12 @@
+entero numero1 , numero2
+inicio
+ escriba " digite un numero  "
+ lea numero1
+ escriba " digite un numero  "
+ lea numero2
+ si (numero1 = numero2) entonces
+ escriba "son iguales "
+ sino
+ escriba " son diferentes"
+ fin si  
+fin

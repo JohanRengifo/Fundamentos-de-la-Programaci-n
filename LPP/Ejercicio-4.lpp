@@ -1,0 +1,14 @@
+entero numero1 , numero2
+inicio
+ escriba " digite un numero  "
+ lea numero1
+ escriba " digite un numero  "
+ lea numero2
+ si numero1 > numero2 entonces
+ escriba "el numero mayor es : ",numero1 , " " , "el numero menor :",numero2
+ sino
+  si numero2 > numero1  entonces
+ escriba "el numero mayor es : ",numero2, " ", " el numero menor :", numero1
+ fin si  
+ fin si  
+fin
