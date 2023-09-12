@@ -1,0 +1,17 @@
+real costecompra, des, costedescuento
+entero descuento
+inicio
+escriba "digite el coste total de la compra:"
+lea costecompra
+escriba "digite el descuento del mes:"
+lea descuento
+des<-descuento/100
+costedescuento<-costecompra*des
+escriba "coste compra:",costecompra 
+llamar nueva_linea
+escriba "descuento:",descuento
+llamar nueva_linea
+escriba "coste compra con decuento:",costedescuento
+llamar nueva_linea
+escriba "total a pagar:",costedescuento
+fin

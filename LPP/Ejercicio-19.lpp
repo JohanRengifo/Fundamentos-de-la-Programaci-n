@@ -1,0 +1,8 @@
+entero numero1
+inicio
+escriba "digite un numero:"
+lea numero1 
+si (numero1<=0) entonces escriba "ERROR"
+sino escriba "del numero:",numero1,", ", "su potencia es:",numero1^numero1," ", "y su raiz es:",numero1^0.5
+fin si
+fin

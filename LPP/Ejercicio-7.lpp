@@ -1,0 +1,39 @@
+/*
+  Construir un programa que calcule el indice de masa corporal de una persona 
+  (IMC = peso [kg] / altura ^ 2 [m]) e indique el estado en el 
+  que se encuentra esa persona en funcion del valor de IMC:
+*/
+
+real peso, altura, calcular_IMC
+
+Inicio 
+
+	Escriba "Ingrese su peso: (Ej: '61 kg')"
+	Lea peso
+	
+	Escriba "Ingrese su Altura: (Ej: '1.7 m')"
+	Lea altura
+	
+	calcular_IMC <- peso / (altura * altura)
+	
+	Si calcular_IMC < 18.5 Entonces
+        Escriba "Bajo peso"
+    Sino 
+    	Si (calcular_IMC >= 18.5) y (calcular_IMC < 24.9) Entonces
+        Escriba "Peso normal"
+    Sino 
+    	Si (calcular_IMC >= 25) y (calcular_IMC < 29.9) Entonces
+        Escriba "Sobrepeso"
+    Sino
+        Escriba "Obesidad"
+    	Fin Si
+    	Fin si
+    Fin si
+	
+	Escriba "Calculadora de IMC"
+	llamar nueva_linea
+    Escriba "-------------------------------"
+    llamar nueva_linea
+    Escriba "Su IMC Es ", calcular_IMC
+
+Fin

@@ -1,0 +1,18 @@
+entero numero1,numero2,numero3
+real producto, suma
+inicio
+escriba "digite numero1:"
+lea numero1
+escriba "digite numero2:"
+lea numero2
+escriba "digite numero3:"
+lea numero3
+producto<-numero1*numero2*numero3
+suma<-numero1+numero2+numero3
+si (numero1<0) entonces 
+escriba "su producto es:",producto 
+sino escriba "su suma es:",suma
+fin si 
+fin
+
+

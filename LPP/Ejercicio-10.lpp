@@ -1,0 +1,22 @@
+/*
+Dado un numero entero que se introduce por teclado, determinar si es negativo o superior a 100.
+*/
+
+entero numero
+
+Inicio
+
+    escriba "Introduce un numero entero: "
+    Lea numero
+
+    Si numero < 0 Entonces
+        Escriba "El numero es negativo."
+    Sino 
+    	Si numero > 100 Entonces
+        Escriba "El numero es superior a 100."
+    Sino
+        Escriba "El numero no es negativo ni superior a 100."
+    Fin Si
+    Fin si
+    
+Fin

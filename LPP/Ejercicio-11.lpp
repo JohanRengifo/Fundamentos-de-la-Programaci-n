@@ -1,0 +1,23 @@
+/*
+Dado un número que se introduce por teclado, si es positivo verificar si se encuentra en el intervalo abierto 60 – 90
+ de lo contrario emitir un mensaje de error.
+*/
+
+real numero
+
+Inicio 
+
+    Escriba "Introduce un numero: "
+    lea numero
+
+    Si numero > 0 Entonces
+        Si (numero > 60) Y (numero < 90) Entonces
+            Escriba "El numero es positivo y esta en el intervalo abierto (60 al 90)"
+        Sino
+            Escriba "El numero es positivo, pero no esta en el intervalo abierto (60 al 90)"
+        Fin si
+    Sino
+        Escriba "El numero no es positivo"
+    Fin si
+    
+Fin

@@ -1,0 +1,15 @@
+entero ninas, ninos, total
+real por_ninas,por_ninos
+inicio
+escriba "digite el total de estudiantes de la clase:"
+lea total
+escriba "digite el nimero de ninos:"
+lea ninos
+escriba "digite el numero de ninas:"
+lea ninas
+por_ninas<-(ninas*100)/total
+por_ninos<-(ninos*100)/total
+escriba "el porcentage de ninas es:",por_ninas,"%"
+llamar nueva_linea
+escriba "el pocentage de ninos es:",por_ninos,"%"
+fin 

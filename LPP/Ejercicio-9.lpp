@@ -1,0 +1,18 @@
+/*
+Dado un número entero que se introduce por teclado, determinar si se encuentra en el intervalo cerrado 51 - 100.
+*/
+
+entero numero
+
+Inicio
+
+  Escriba "Ingrese un numero: "
+  Lea numero
+
+  Si (numero >= 51) Y (numero <= 100) Entonces
+    Escriba "El numero esta en un intervalo cerrado que comprende los Numeros del 51 al 100."
+  Sino
+    Escriba "El numero no en un intervalo cerrado, solo los numeros del 51 al 100."
+  Fin Si
+
+Fin
