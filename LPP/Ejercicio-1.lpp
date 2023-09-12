@@ -1,0 +1,10 @@
+entero numero
+inicio
+ escriba " digite un numero "
+ lea numero
+ si ((numero mod 2)=0) entonces
+ escriba "es numero par "
+ sino
+ escriba " es numero impar "
+ fin si  
+fin
