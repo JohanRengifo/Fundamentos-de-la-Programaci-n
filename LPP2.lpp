@@ -1,0 +1,18 @@
+// En MegaPlaza se hace un 20% de descuento a los clientes cuya compra supere los 300 
+ // ¿Cual será la cantidad que pagara una persona por su compra?
+ entero descuento , compra , compra_menos_descuento
+ inicio 
+       escriba "vienvenido a MegaPlaza"
+       llamar nueva_linea
+       escriba "por favor digite el valor de su compra "
+       lea compra
+       descuento <- ((compra * 20)/100) 
+       compra_menos_descuento <- (compra - descuento)
+       si (compra >10000) entonces       
+       escriba "el total de su compra es ",compra_menos_descuento
+       sino
+       escriba "el total de su compra es ",compra
+       fin si
+ fin   
+
+
