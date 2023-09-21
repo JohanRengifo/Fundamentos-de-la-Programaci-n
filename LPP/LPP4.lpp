@@ -1,0 +1,16 @@
+//Un empleado necesita calcular su salario semanal, el cual se obtiene de la siguiente manera: 
+//Si trabaja 40 horas o menos se le paga $20000 por hora 
+//Si trabaja más de 40 horas se le paga $19000 pero las horas extras a 25000
+entero horas_trabajadas , horas_extras , total
+inicio
+      escriba "hola, dime cuantas horas trabajas en total a la semana"
+      lea horas_trabajadas
+      si (horas_trabajadas <= 40) entonces
+      total <- (horas_trabajadas * 20000)
+      escriba "su sueldo es de: ", total    
+      sino
+      horas_extras <-(horas_trabajadas - 40)
+      total <- (horas_extras * 25000) + (40 * 19000)
+      escriba "Su sueldo es de: ",total
+      fin si
+fin  
