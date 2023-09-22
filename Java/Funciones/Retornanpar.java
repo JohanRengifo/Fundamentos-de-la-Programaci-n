@@ -7,7 +7,7 @@ class RetornonoParametro{
     }
 
     public static void main(String[] args) {
-        Retorno objeto = new Retorno();
+        RetornonoParametro objeto = new RetornonoParametro();
         int resultado = objeto.obtenerNumero();
         System.out.println("El numero obtenido es: " + resultado);
     }
