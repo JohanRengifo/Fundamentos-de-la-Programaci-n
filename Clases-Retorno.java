@@ -19,18 +19,24 @@ static Scanner digite = new Scanner(System.in);
             n2 = digite.nextInt();
             suma(n1, n2);
          break;
+         
          case 2:
-     
             int nm1, nm2;
             System.out.println("Ingrese 2 Numeros: ");
             nm1 = digite.nextInt();
             nm2 = digite.nextInt();
             double resultado = division(nm1, nm2);
             System.out.println("El Resultado es. " + resultado );
-
          break;
          
          case 3: despedida();
+         break;
+         
+         case 4:
+            String nombre;
+            System.out.println("Ingrese Su Nombre");
+            nombre = digite.next();
+            mencion(nombre);
          break;
       }
    }
@@ -42,6 +48,7 @@ static Scanner digite = new Scanner(System.in);
       System.out.println("1...SUMA");
       System.out.println("2...DIVISON");
       System.out.println("3...DESPEDIDA");
+      System.out.println("4...MENCION");
       opcion = digite.nextInt();
       
       return opcion;
@@ -65,4 +72,8 @@ static Scanner digite = new Scanner(System.in);
       System.out.println("Hasta La Vista Baby");
    }
    
+   public static void mencion(String nombre)
+   {
+      System.out.println("El Señor " + nombre + " Es Mencionado con Honor");
+   }
 }
