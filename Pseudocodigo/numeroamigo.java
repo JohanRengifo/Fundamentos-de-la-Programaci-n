@@ -1,16 +1,18 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 class NumerosAmigos {
+public static Scanner digite = new Scanner(System.in);
     public static void main(String[] args) {
         int num1, num2, adn1, adn2;
 
         System.out.println("Ingresar un Numero:");
-        num1 = Integer.parseInt(System.console().readLine());
+        num1 = digite.nextInt();
 
         System.out.println("Ingresar otro Numero:");
-        num2 = Integer.parseInt(System.console().readLine());
-
+        num2 = digite.nextInt();
+        
         // Encuentra los divisores del primer número
         List<Integer> divisors1 = new ArrayList<>();
         for (int i = 1; i <= num1; i++) {
