@@ -1,0 +1,31 @@
+var 
+    num1, num2, kd, adn1, adn2 : integer
+
+begin
+    write("Ingresar un Numero:")
+    read(num1)
+    write("Ingresar otro Numero:")
+    read(num2)
+
+    kd <- 1
+    adn 1 <- 0 
+    while(kd < num1)do
+        begin
+            if (num1 mod kd = 0)then
+                adn1 <- adn1 + kd
+            kd <- kd + 1
+    end
+    kd1 <- 1
+    adn2 <- 0
+    while(kd < num2)do
+        begin
+            if (num2 mod kd = 0)then
+                adn2 <- adn2 + kd
+            kd <- kd + 1
+    end
+    if(num1 = adn 2 and num2 = adn1)then
+        write("Los Numeros Son Amigos")
+    else
+        write("Los Numeros no son Amigos")
+    end
+end
