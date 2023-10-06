@@ -1,0 +1,12 @@
+// Ciclo que Imprima Numeros del 100 al 200 de 1 a 1 
+entero nm
+
+inicio
+	nm <- 100
+	
+	mientras nm <= 200 haga
+		escriba "El numero es: ", nm
+		llamar nueva_linea
+		nm <- nm + 1
+	fin mientras
+fin

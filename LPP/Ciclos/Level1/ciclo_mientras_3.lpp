@@ -1,0 +1,21 @@
+// Contador Que Recibe un Numero y imprima si es par o impar, y si es impar diga cuantos impares se recibieron
+
+entero nm, contador, k_impar
+
+inicio
+	k_impar <- 0
+	contador <- 1
+	
+	mientras contador <= 10 haga
+		llamar nueva_linea
+		Escriba "Ingrese un Numero: "
+		Lea nm
+		si nm mod 2 = 0 entonces 
+			escriba "El Numero es Par."
+		sino
+			k_impar <- k_impar + 1
+		fin si
+		contador <- contador + 1
+	fin mientras
+	Escriba "HAY ", k_impar, " IMPARES"
+fin

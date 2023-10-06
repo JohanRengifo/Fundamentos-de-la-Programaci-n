@@ -1,0 +1,89 @@
+//Programa de Votacion Femenina
+Entero k, can1, can2, can3, can4, can5, voto
+
+Inicio
+	
+	//Contador Votos
+	k <- 1
+	//Contador Vostos por Candidata
+	can1 <- 0
+	can2 <- 0
+	can3 <- 0
+	can4 <- 0
+	can5 <- 0
+	
+	//Ciclo Contador Maximo Votos
+	// <= n -- n: la Cantidad de votos que se admitiran
+	Mientras k <= 3 haga
+	
+		//Imprime las Candidatos
+		llamar nueva_linea
+		Escriba "REINADO MISS UNIMAYOR"
+		llamar nueva_linea
+		Escriba "1...Candidata 1"
+		llamar nueva_linea
+		Escriba "2...Candidata 2"
+		llamar nueva_linea
+		Escriba "3...Candidata 3"
+		llamar nueva_linea
+		Escriba "4...Candidata 4"
+		llamar nueva_linea
+		Escriba "5...Candidata 5"
+		llamar nueva_linea
+		Escriba "Escoja su Candidata: "
+		
+		Lea voto
+		
+		//Ciclo Para Votación
+		Si voto = 1 entonces 
+			can1 <- can1 +1
+		Fin si
+
+		Si voto = 2 entonces
+			can2 <- can2 + 1
+        Fin si
+
+		Si voto = 3 entonces
+		    can3 <- can3 + 1
+        Fin si
+
+		Si voto = 4 entonces
+			can4 <- can4 + 1
+		Fin Si
+
+        Si voto = 5 entonces
+			can5 <- can5 + 1
+        Fin si
+
+	//Agraga 1 Voto Cada que se Ejecuta el Ciclo
+	k <- k + 1
+	Fin Mientras
+	
+	//Ciclo Para Ver quien Tiene Mas Votos
+	//Ganadora Candidata 1
+	Si (can1 > can2) Y (can1 > can3) Y (can1 > can4) Y (can1 > can5) Entonces
+		llamar nueva_linea
+		Escriba "Ganadora Candidata 1"
+	Fin Si
+	//Gandora Candidata 2
+	Si (can2 > can1) Y (can2 > can3) Y (can2 > can4) Y (can2 > can5) Entonces
+		llamar nueva_linea
+		Escriba "Ganadora Candidata 2"
+	Fin Si
+	//Gandora Candidata 3
+	Si (can3 > can1) Y (can3 > can2) Y (can3 > can4) Y (can3 > can5) Entonces
+		llamar nueva_linea
+		Escriba "Ganadora Candidata 3"
+	Fin Si
+	//Gandora Candidata 4
+	Si (can4 > can1) Y (can4 > can2) Y (can4 > can3) Y (can4 > can5) Entonces
+		llamar nueva_linea
+		Escriba "Ganadora Candidata 4"
+	Fin Si
+	//Gandora Candidata 5
+	Si (can5 > can1) Y (can5 > can2) Y (can5 > can3) Y (can5 > can4) Entonces
+		llamar nueva_linea
+		Escriba "Ganadora Candidata 5"
+	Fin Si
+
+Fin
