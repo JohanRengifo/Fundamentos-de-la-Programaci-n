@@ -1,4 +1,4 @@
-# Codigo Amigo | Divisores 
+# Codigo Amigo | Divisores
 
 Este código es un algoritmo para determinar si dos números son amigos. Los números amigos son dos números naturales distintos en los que la suma de los divisores propios del primero es igual al segundo, y viceversa.
 
