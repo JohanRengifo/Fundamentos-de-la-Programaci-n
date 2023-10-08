@@ -11,7 +11,7 @@ class NumerosAmigos {
         // Solicita el Primer Numero
         System.out.println("Ingresar un Numero:");
         num1 = digite.nextInt();
-        // Solicita el Segundo Nombre
+        // Solicita el Segundo Numero
         System.out.println("Ingresar otro Numero:");
         num2 = digite.nextInt();
 

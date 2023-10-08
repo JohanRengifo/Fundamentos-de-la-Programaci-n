@@ -40,7 +40,7 @@ Aquí hay una explicación más detallada de cada parte del código:
     // Solicita el Primer Numero
     System.out.println("Ingresar un Numero:");
     num1 = digite.nextInt();
-    // Solicita el Segundo Nombre
+    // Solicita el Segundo Numero
     System.out.println("Ingresar otro Numero:");
     num2 = digite.nextInt();
 ```
@@ -67,7 +67,7 @@ Aquí hay una explicación más detallada de cada parte del código:
     }
 ```
 
--Aqui se encuentra los divisores del segundo número.
+- Aqui se encuentra los divisores del segundo número.
 
 ```bash
   // Encuentra los divisores del segundo número
