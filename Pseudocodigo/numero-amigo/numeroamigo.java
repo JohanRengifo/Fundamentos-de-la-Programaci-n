@@ -9,10 +9,10 @@ class NumerosAmigos {
     public static void main(String[] args) {
         int num1, num2;
         // Solicita el Primer Numero
-        System.out.println("Ingresar un Numero:");
+        System.out.println("Por Favor Ingrese un Numero:");
         num1 = digite.nextInt();
         // Solicita el Segundo Numero
-        System.out.println("Ingresar otro Numero:");
+        System.out.println("Por Favor Ingrese otro Numero:");
         num2 = digite.nextInt();
 
         // Encuentra los divisores del primer número
@@ -46,6 +46,8 @@ class NumerosAmigos {
         // Comprueba si los números son amigos e Imprime el Resultado
         if (sumaDivisores1 == num2 || sumaDivisores2 == num1) {
             System.out.println("Los Numeros Son Amigos");
+            System.out.println("Los Divisores del Primer Numero son: " + divisors1);
+            System.out.println("Los Divisores del Segundo Numero son: " + divisors2);
         } else {
             System.out.println("Los Numeros no son Amigos");
         }

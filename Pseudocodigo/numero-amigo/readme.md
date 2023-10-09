@@ -50,7 +50,7 @@ Aquí hay una explicación más detallada de cada parte del código:
 ```bash
   // Encuentra los divisores del primer número
     List<Integer> divisors1 = new ArrayList<>();
-    for (int i = 1; i <= num1; i++) {
+    for (int i = 1; i <= num1; i++) {    00  
         if (num1 % i == 0 && i != num1) {
             divisors1.add(i);
         }
