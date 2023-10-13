@@ -9,14 +9,6 @@ class cicloPara
         {
             System.out.println("Numero " + k);
         }
-        
-        //ciclo While
-        int numero=20;
-        while(numero<=40)
-        {
-            System.out.println("Numero: " + numero);
-            numero+=2;
-        }
 
         //Otra forma
         System.out.println("Ciclo Otro ");
