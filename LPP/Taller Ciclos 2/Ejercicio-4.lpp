@@ -1,0 +1,19 @@
+entero inversion, mes
+real interesmensual, inversionfinal
+inicio
+
+    escriba "Ingrese la cantidad de dinero a invertir:  "
+    lea inversion
+
+    interesmensual <- 0.02
+    mes <-1 
+    mientras mes <= 12 haga
+    inversionfinal <- inversion + (inversion * interesmensual)
+
+    mes <- mes + inversion
+
+    fin mientras
+
+    escriba "Despues de 12 meses, eu inversich sera de: ", inversionfinal
+
+fin
