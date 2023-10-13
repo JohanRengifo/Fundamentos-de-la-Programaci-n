@@ -1,0 +1,21 @@
+entero numero, suma
+
+inicio
+
+numero <- 100
+
+suma <- 0
+
+mientras numero > 0 haga
+
+suma <- suma + numero
+
+numero <- 2
+
+numero
+
+fin mientras
+
+escriba "la suma total es de: ",
+
+fin

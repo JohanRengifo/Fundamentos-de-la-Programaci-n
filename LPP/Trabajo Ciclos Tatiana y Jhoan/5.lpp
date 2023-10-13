@@ -1,0 +1,65 @@
+entero voto, k, candidatol, candidato2, candidato3
+
+inicio
+K<-1
+
+candidatol <-0
+
+candidato2 <- 0
+
+candidato3<-0
+
+mientras k← 10 haga
+
+escriba "seleccion para gobernador"
+
+llamar nueva_linea
+
+escribe "1. Candidato+1: Cesar"
+
+11amar nueva_linea 
+
+excribe "2. Candidato#2: octavio "
+
+Llamar nueva_linea.
+
+excriba 3. Candidato#31: liliana"
+ Llamar nueva_linea
+
+escriba "Vote por su candidato de preferencia:"
+
+lea voto
+
+si voto = 1 entonces
+
+candidatal <- candidatol + 1
+
+fin si
+
+si voto = 2 entonces
+
+candidato2 <- candidato2 + 1
+
+fan si
+
+si voto = 3 entonces 
+candidato3 <- candidato3 +1
+
+ fin si
+ k <-k +1
+
+si (candidatol > candidato2) y (candidatol candidatos) entonces
+
+escriba "El nuevo gobernador del pueblo es el candidato 1: Carlos, con un total de votos  ", candidatul
+
+si (candidate2> candidatol) y (candidato2 candidato3) entonces
+
+escriba "El nuevo gobernador del pueblo es el Candidato#2: Peret, con un total de votos ",candidato2 
+
+fin si
+
+si (candidato3> candidatol) y (candidatos candidato21 entonces escriba "El nuevo gobernador del pueblo es el Candidato 3: con un total de votos", candidato3
+
+Fin si
+
+fin

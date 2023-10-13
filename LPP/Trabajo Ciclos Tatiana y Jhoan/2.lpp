@@ -1,0 +1,35 @@
+entera numero, suma booleand operador
+
+inicio
+
+numero <- 100
+
+suma <-0
+
+operador <- falso
+
+mientras numero > 0 haga
+
+si (operador falso) entonces
+
+suma <- suma + numero
+
+operador <- verdadero
+
+sino
+
+suma <- suma
+
+numero
+
+operador <- falso
+
+fin si
+
+numero <- numero 2
+
+fin mientras
+
+escriba "la suma total es de: Suma
+
+fin
