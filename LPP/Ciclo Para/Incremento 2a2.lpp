@@ -1,0 +1,13 @@
+entero contador
+
+Inicio
+	Escriba " De 20 a 40"
+	
+	//Inicio Ciclo
+	para contador <- 20 hasta 40 haga
+		//Impresion de Valores dentro del Ciclo
+		Si (contador mod 2) = 0 entonces
+			Escriba "Numero ", contador
+		Fin si
+	Fin para 
+Fin

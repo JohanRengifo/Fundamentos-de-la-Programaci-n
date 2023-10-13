@@ -1,0 +1,13 @@
+entero contador
+
+Inicio
+	Escriba "CICLO PARA"
+	
+	//Inicio Ciclo
+	para contador <- 1 hasta 10 haga
+		//Impresion de Valores dentro del Ciclo
+		llamar nueva_linea
+		Escriba "Numero ", contador
+		
+	Fin para 
+Fin
