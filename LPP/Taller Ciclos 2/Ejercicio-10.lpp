@@ -1,0 +1,29 @@
+Real sumaCalificaciones, calificacionMinima, calificacionMedia, calificaciones
+Entero i
+
+Inicio
+    Para i <- 1 hasta 6 haga
+        Escriba "Ingrese la calificacion del alumno ", i, ": "
+        Lea calificaciones
+    Fin para
+    
+    // Inicializar sumaCalificaciones y calificacionMinima con la primera calificación
+    sumaCalificaciones <- calificaciones
+    calificacionMinima <- calificaciones
+    
+    // Calcular la suma de todas las calificaciones y encontrar la calificación mínima
+    Para i <- 2 hasta 6 haga
+        sumaCalificaciones <- sumaCalificaciones + calificaciones
+        Si calificaciones < calificacionMinima Entonces
+            calificacionMinima <- calificaciones
+        Fin si
+    Fin para
+    
+    // Calcular la calificación media
+    calificacionMedia <- (sumaCalificaciones / i)
+    
+    // Mostrar los resultados
+    Escriba "La calificacion media del grupo es: ", calificacionMedia
+    Llamar nueva_linea
+    Escriba "La calificacion mas baja del grupo es: ", calificacionMinima
+Fin

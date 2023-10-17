@@ -1,0 +1,24 @@
+Entero numero, menor, n, numeros, i
+
+Inicio
+    // Leer la cantidad de números (n)
+    Escriba "Ingrese la cantidad de números: "
+    Lea n
+
+    // Leer los números y encontrar el menor
+    Escriba "Ingrese el primer número: "
+    Lea numero
+    menor <- numero
+
+    Para i <- 2 hasta n haga
+        Escriba "Ingrese el siguiente número: "
+        Lea numero
+        Si numero < menor Entonces
+            menor <- numero
+        Fin si
+    Fin para
+
+    // Mostrar el número de menor valor
+    Escriba "El número de menor valor es: ", menor
+
+Fin

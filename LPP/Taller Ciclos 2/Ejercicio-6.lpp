@@ -1,0 +1,26 @@
+Entero contadorReprobados, contador
+Real calificacion, porcentajeReprobados
+
+Inicio
+    contadorReprobados <- 0
+    contador <- 1
+
+    // Ciclo para definir si reprueba
+    Mientras contador <= 50 haga
+        Escriba "Ingrese la calificacion ", contador, ": "
+        Lea calificacion
+
+        // Verifica si la calificación es menor que 3.5 (Reprobado)
+        Si calificacion < 3.5 Entonces
+            contadorReprobados <- contadorReprobados + 1
+        Fin Si
+
+        contador <- contador + 1
+    Fin Mientras
+
+    // Se calcula el porcentaje de alumnos reprobados
+    porcentajeReprobados <- (contadorReprobados / 50) * 100
+
+    // Imprime el porcentaje
+    Escriba "El porcentaje de reprobados es: ", porcentajeReprobados, "%"
+Fin
