@@ -7,7 +7,6 @@ Inicio
         Lea calificaciones
     Fin para
     
-    // Inicializar sumaCalificaciones y calificacionMinima con la primera calificación
     sumaCalificaciones <- calificaciones
     calificacionMinima <- calificaciones
     
@@ -19,10 +18,10 @@ Inicio
         Fin si
     Fin para
     
-    // Calcular la calificación media
+    // Calcula la calificación media
     calificacionMedia <- (sumaCalificaciones / i)
     
-    // Mostrar los resultados
+    // Imprime los resultados
     Escriba "La calificacion media del grupo es: ", calificacionMedia
     Llamar nueva_linea
     Escriba "La calificacion mas baja del grupo es: ", calificacionMinima
