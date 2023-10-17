@@ -1,34 +1,24 @@
-Entero n, i
-Cadena[35] nombre, nombreMejorEstudiante
-Real calificacion1, calificacion2, calificacion3, mejorPromedio, promedio
+Entero numero, mayor, n, numeros, i
 
 Inicio
+    // Leer la cantidad de números (n)
+    Escriba "Ingrese la cantidad de numeros: "
+    Lea n
 
-  Escriba "Ingrese el número de estudiantes a Evaluar: "
-  Lea n
-  
-  mejorPromedio <- 0
-  para i <- 1 hasta n haga
-  
-    Escriba "Ingrese el nombre del estudiante: "
-    Lea nombre
-    
-    Escriba "Ingrese la calificacion de la unidad 1 (0.0): "
-    Lea calificacion1
-    
-    Escriba "Ingrese la calificacion de la unidad 2 (0.0): "
-    Lea calificacion2
-    
-    Escriba "Ingrese la calificacion de la unidad 3 (0.0): "
-    Lea calificacion3 
-    
-    promedio <- (calificacion1 + calificacion2 + calificacion3) / 3
+    // Leer los números y encontrar el menor
+    Escriba "Ingrese el primer numero: "
+    Lea numero
+    mayor <- numero
 
-    Si promedio > mejorPromedio Entonces
-      mejorPromedio <- promedio
-      nombreMejorEstudiante <- nombre
-    Fin si
-  Fin para
+    Para i <- 2 hasta n haga
+        Escriba "Ingrese el siguiente numero: "
+        Lea numero
+        Si numero > mayor Entonces
+            mayor <- numero
+        Fin si
+    Fin para
 
-  Escriba "El estudiante con el mejor promedio es ", nombreMejorEstudiante, " con un promedio de ", mejorPromedio
+    // Mostrar el número de menor valor
+    Escriba "El numero de Mayor valor es: ", mayor
+
 Fin

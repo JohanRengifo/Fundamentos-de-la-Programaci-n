@@ -4,31 +4,31 @@ Real calificacion1, calificacion2, calificacion3, mejorPromedio, promedio
 
 Inicio
 
-  Escriba "Ingrese el número de estudiantes: "
+  Escriba "Ingrese el número de estudiantes a Evaluar: "
   Lea n
   
   mejorPromedio <- 0
-  para i <- 1 to n do
+  para i <- 1 hasta n haga
   
     Escriba "Ingrese el nombre del estudiante: "
     Lea nombre
     
-    Escriba "Ingrese la calificación de la unidad 1: "
+    Escriba "Ingrese la calificacion de la unidad 1 (0.0): "
     Lea calificacion1
     
-    Escriba "Ingrese la calificación de la unidad 2: "
+    Escriba "Ingrese la calificacion de la unidad 2 (0.0): "
     Lea calificacion2
     
-    Escriba "Ingrese la calificación de la unidad 3: "
+    Escriba "Ingrese la calificacion de la unidad 3 (0.0): "
     Lea calificacion3 
     
-    promedio <- (calificacion1 + calificacion2 + calificacion3) / 3;
+    promedio <- (calificacion1 + calificacion2 + calificacion3) / 3
 
     Si promedio > mejorPromedio Entonces
-      mejorPromedio <- promedio;
-      nombreMejorEstudiante <- nombre;
-    Fin si;
-  Fin para;
+      mejorPromedio <- promedio
+      nombreMejorEstudiante <- nombre
+    Fin si
+  Fin para
 
-  Escriba "El estudiante con el mejor promedio es ', nombreMejorEstudiante, ' con un promedio de ', mejorPromedio"
+  Escriba "El estudiante con el mejor promedio es ", nombreMejorEstudiante, " con un promedio de ", mejorPromedio
 Fin
