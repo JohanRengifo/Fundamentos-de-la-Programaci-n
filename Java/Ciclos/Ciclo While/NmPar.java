@@ -8,7 +8,7 @@ class NumerosPrimos
     {
         int opcion = 0;
         do{
-            System.out.println(" 1...PRIMOS \n 2...Tabla \n 3...Fibonacci \n 4...Salir");
+            System.out.println("\n 1...PRIMOS \n 2...Tabla \n 3...Fibonacci \n 4...Salir \n");
             opcion = digite.nextInt();
             switch(opcion)
             {
@@ -17,7 +17,7 @@ class NumerosPrimos
                 break;
 
                 case 2:
-                    
+                    tablas();
                 break;
 
                 case 3:
@@ -35,7 +35,7 @@ class NumerosPrimos
     }
     public static void numeroPrimo()
     {
-        int num;
+        int num, k_primates=0;
         // Solicita el  Numero
         System.out.println("Por Favor Ingrese un Numero:");
         num = digite.nextInt();
@@ -48,9 +48,23 @@ class NumerosPrimos
             }
         }
         if(k_primates == 2){
-            System.out.println("Es Primo");
+            System.out.println("Es Prim, Sus divisores son: " + k_primates);
         }else{
-            System.out.println("No es Primo");
+            System.out.println("No es Primo, Sus divisores son: " + k_primates);
+        }
+    }
+
+    public static void tablas(){
+        int num, rest = 0;
+        // Solicita el  Numero
+        System.out.println("Por Favor Ingrese un Numero:");
+        num = digite.nextInt();
+
+        System.out.println("La Tabla de Multiplicar del " + num + " es: ");
+
+        for(int i = 1; i <= 10; i++) {
+            rest = num * i;
+            System.out.println(num + " X " + i + ": " + rest);
         }
     }
 }
