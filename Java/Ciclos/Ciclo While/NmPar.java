@@ -21,7 +21,10 @@ class NumerosPrimos
                 break;
 
                 case 3:
-                    
+                       int n = 50;
+                       int resultado=calcularFibonacci(n);
+                       System.out.println("El Numero Fibonacci esta en la Posicion " + n + " y su resultado es: " + resultado);
+                       
                 break;
 
                 case 4:
@@ -65,6 +68,15 @@ class NumerosPrimos
         for(int i = 1; i <= 10; i++) {
             rest = num * i;
             System.out.println(num + " X " + i + ": " + rest);
+        }
+    }
+
+    public static void calcularFibonacci(int n){
+        
+        if(n<=1){
+            return n;
+        }else{
+            return calcularFibonacci(n- 1) + calcularFibonacci(n - 2);
         }
     }
 }
