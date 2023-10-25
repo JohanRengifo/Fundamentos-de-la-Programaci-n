@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
-public class Reprobados {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+class reprobados {
+    static Scanner digite = new Scanner(System.in);
+    public static void main(String args[]) {
 
         int contadorReprobados = 0;
         int contador = 1;
@@ -11,7 +11,7 @@ public class Reprobados {
 
         while (contador <= 50) {
             System.out.print("Ingrese la calificación " + contador + ": ");
-            calificacion = scanner.nextDouble();
+            calificacion = digite.nextDouble();
             if (calificacion < 3.5) {
                 contadorReprobados++;
             }
