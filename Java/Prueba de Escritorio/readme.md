@@ -6,9 +6,11 @@ Este es un programa Java simple que calcula el porcentaje de estudiantes que han
 
 1. El programa solicitará ingresar las calificaciones de 50 estudiantes.
 
-2. Una vez ingresadas las calificaciones Si la calificación es menor que 3.5, se considerará que el estudiante ha reprobado. De lo contrario fue Aprobado.
+2. En este punto entra en funcionamiento el Ciclo For. Mientras se registran las notas, el ciclo cumple con una condicion adicional.
 
-3. Al finalizar, el programa mostrará el porcentaje de estudiantes que han reprobado.
+3. Si 'calificacion < 3.5' se considerará que el estudiante ha reprobado, y agraga ese valor al contador 'contadorReprobados' y se vuelve a repetir el Ciclo. En caso de que no se cumpla la funcion de 'calificacion < 3.5' solamente repite el ciclo.
+
+4. Al finalizar, el programa mostrará el porcentaje de estudiantes que han reprobado. Esta informacion la sacara del total de registros almacenados en 'contador Reprobados'
 
 ## Ejemplo de Ejecución
 
