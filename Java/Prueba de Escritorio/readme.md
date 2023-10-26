@@ -15,7 +15,6 @@ Este es un programa Java simple que calcula el porcentaje de estudiantes que han
 ```bash
 Ingrese la calificación 1: 2.5
 Ingrese la calificación 2: 3.7
-...
 Ingrese la calificación 50: 2.0
 El porcentaje de reprobados es: XX.X%
 ```
