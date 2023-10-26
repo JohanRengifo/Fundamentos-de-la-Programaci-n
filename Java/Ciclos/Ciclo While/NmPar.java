@@ -1,68 +1,65 @@
 import java.util.Scanner;
 
 class NumerosPrimos {
-    static Scanner digite = new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner digite = new Scanner(System.in);
+        int opcion;
 
-    public static void main(String args[]) {
-        int opcion = 0;
         do {
-            System.out.println("\n 1...PRIMOS \n 2...Tabla \n 3...Fibonacci \n 4...Salir \n");
+            System.out.println("\n1... Primos\n2... Tabla\n3... Fibonacci\n4... Salir\n");
             opcion = digite.nextInt();
+
             switch (opcion) {
                 case 1:
-                    numeroPrimo();
+                    numeroPrimo(digite);
                     break;
-
                 case 2:
-                    tablas();
+                    tablas(digite);
                     break;
-
                 case 3:
                     int n = 50;
                     int resultado = calcularFibonacci(n);
-                    System.out.println("El Numero Fibonacci en la Posición " + n + " es: " + resultado);
+                    System.out.println("El número Fibonacci en la posición " + n + " es: " + resultado);
                     break;
-
                 case 4:
                     System.out.println("Cierre de Programa");
                     break;
-
                 default:
                     System.out.println("Ingresó una opción incorrecta.");
             }
         } while (opcion != 4);
+
+        digite.close(); // Cierra el Scanner al final del programa.
     }
 
-    public static void numeroPrimo() {
-        int num, k_primos = 0;
-        // Solicita el  Numero
-        System.out.println("Por Favor Ingrese un Numero:");
-        num = digite.nextInt();
+    public static void numeroPrimo(Scanner digite) {
+        System.out.println("Por favor, ingrese un numero:");
+        int num = digite.nextInt();
 
-        // Encuentra los divisores del número
+        int k_primos = 0;
+
         for (int k = 1; k <= num; k++) {
             if (num % k == 0) {
                 k_primos++;
             }
         }
+
         if (k_primos == 2) {
-            System.out.println("Es Primo, sus divisores son: " + k_primos);
+            System.out.println("Es primo, sus divisores son: " + k_primos);
         } else {
-            System.out.println("No es Primo, sus divisores son: " + k_primos);
+            System.out.println("No es primo, sus divisores son: " + k_primos);
         }
     }
 
-    public static void tablas() {
-        int num, result;
-        // Solicita el  Numero
-        System.out.println("Por Favor Ingrese un Numero:");
-        num = digite.nextInt();
+    public static void tablas(Scanner digite) {
+        System.out.println("Por favor, ingrese un número:");
+        int num = digite.nextInt();
 
-        System.out.println("La Tabla de Multiplicar del " + num + " es: ");
+        System.out.println("La tabla de multiplicar del " + num + " es: ");
 
         for (int i = 1; i <= 10; i++) {
-            result = num * i;
-            System.out.println(num + " X " + i + ": " + result);
+            int result = num * i;
+            System.out.println(num + " * " + i + ": " + result);
         }
     }
 
@@ -70,7 +67,7 @@ class NumerosPrimos {
         if (n <= 1) {
             return n;
         } else {
-            return calcularFibonacci(n - 1) + calcularFibonacci(n - 2);
+            return calcularFibonacci(n + 1) + calcularFibonacci(n + 2);
         }
     }
 }
