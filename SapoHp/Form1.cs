@@ -12,9 +12,17 @@ namespace SapoHp
 {
     public partial class Fondo : Form
     {
+        // Vidas
+        int vidas = 3;
+
+        // Musica
+        SoundPlayer musica_fondo = new SoundPlayer(@"C:\Users\Estudiante\Music\sonidos\The-Spectre.wav");
+        SoundPlayer freno = new SoundPlayer(@"C:\Users\Estudiante\Music\sonidos\1.wav");
+
         public Fondo()
         {
             InitializeComponent();
+            musica_fondo.Play(); // Reproduce la Musica de Fondo
         }
 
         private void timer1_Tick_1(object sender, EventArgs e)
@@ -35,10 +43,46 @@ namespace SapoHp
             retornocarrito(carrorojo);
             retornocarrito(moto);
 
-            if (ranafrente.Bounds.IntersectsWith(cisterna.Bounds))
+            // Choque de la Rana
+            choqueRana(cisterna);
+            choqueRana(taxi);
+            choqueRana(rojo);
+            choqueRana(batimovil);
+            choqueRana(violeta);
+            choqueRana(retro);
+            choqueRana(blanco);
+            choqueRana(carropolicia);
+        }
+
+        // Funcion Cambio Imagen | Choque
+        public void choqueRana(PictureBox choque)
+        {
+            if (sapa.Bounds.IntersectsWith(choque.Bounds))
             {
-                ranafrente.Image = SapoHp.Properties.Resources.ranaAplastada;
+                sapa.Image = MUCHOSAPO.Properties.Resources.ranaAplastada;
+                timer1.Stop();
+                freno.Play();
+                quitarVidas();
             }
+            
+        }
+
+        // Funcion Quita Vidas
+        public void quitarVidas()
+        {
+            switch (vidas)
+            {
+                case 1:
+                    corazon1.Image = MUCHOSAPO.Properties.Resources.calavera; // Quita el Corazon por una Calavera
+                break;
+                case 2:
+                    corazon2.Image = MUCHOSAPO.Properties.Resources.calavera;
+                break;
+                case 3:
+                    corazon3.Image = MUCHOSAPO.Properties.Resources.calavera;
+                break;
+            }
+            vidas--;
         }
 
         // Funcion Reaparicion  Izq - Der
