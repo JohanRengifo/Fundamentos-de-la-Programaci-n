@@ -1,5 +1,3 @@
-import java.util.Scanner; 
-
 class cicloPara
 {
     public static void main(String args[])
