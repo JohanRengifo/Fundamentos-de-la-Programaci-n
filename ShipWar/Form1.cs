@@ -1,5 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
 
@@ -11,14 +17,14 @@ namespace SapoHp
         int puntos = 0; // Puntos iniciales
         int tiempoTranscurrido = 0; // Segundos transcurridos
         int intentosRestantes = 3; // Número de intentos restantes
-        SoundPlayer musica_fondo = new SoundPlayer(@".wav");
-        SoundPlayer colision = new SoundPlayer(@".wav"); 
+        // SoundPlayer musica_fondo = new SoundPlayer(@".wav");
+        // SoundPlayer colision = new SoundPlayer(@".wav");
         Timer puntosTimer = new Timer();
 
         public Fondo()
         {
             InitializeComponent();
-            musica_fondo.Play(); // Reproduce la música de fondo
+            // musica_fondo.Play(); // Reproduce la música de fondo
             puntosTimer.Interval = 1000; // 1 segundo
             puntosTimer.Tick += PuntosTimer_Tick;
             puntosTimer.Start();
@@ -34,7 +40,7 @@ namespace SapoHp
             }
             else if (tiempoTranscurrido % 24 == 0)
             {
-                puntos =+20; //Cada 24 segundos, se suman 20 puntos
+                puntos = +20; //Cada 24 segundos, se suman 20 puntos
             }
             else if (tiempoTranscurrido % 16 == 0)
             {
@@ -52,9 +58,9 @@ namespace SapoHp
         private void timer1_Tick(object sender, EventArgs e)
         {
             desplazamiento();
-            obstaculosEO(obstaculos);
-            obstaculosOE(obstaculos);
-            colision(obstaculos); // Colisión con Obstaculos
+            obstaculosEO(obstaculo);
+            obstaculosOE(obstaculo);
+            colision(obstaculo); // Colisión con Obstaculos
         }
 
         public void colision(PictureBox colision)
@@ -63,7 +69,7 @@ namespace SapoHp
             {
                 barco.Image = ShipWar.Properties.Resources.barcodestroy;
                 timer1.Stop();
-                colision.Play();
+                // colision.Play();
                 quitarVidas();
                 if (vidas > 0)
                 {
@@ -129,14 +135,14 @@ namespace SapoHp
             if (evento.KeyCode == Keys.Up)
             {
                 barco.Top -= 10;
-                barco.Image = ShipWar.Properties.Resources.barco;
+                barco.Image = ShipWar.Properties.Resources.Ship;
             }
 
             // Hacia Abajo
             if (evento.KeyCode == Keys.Down)
             {
                 barco.Top += 10;
-                barco.Image = ShipWar.Properties.Resources.barco;
+                barco.Image = ShipWar.Properties.Resources.Ship;
             }
         }
 
@@ -152,9 +158,10 @@ namespace SapoHp
             corazon1.Image = ShipWar.Properties.Resources.corazon; // Restablece las vidas
             corazon2.Image = ShipWar.Properties.Resources.corazon;
             corazon3.Image = ShipWar.Properties.Resources.corazon;
-            barco.Location = new Point(inicioX, inicioY); // Restablece la posición del barco
-            barco.Image = ShipWar.Properties.Resources.barco; // Restablece la imagen del barco
+            barco.Location = new Point(Location.X, Location.Y); // Restablece la posición del barco
+            barco.Image = ShipWar.Properties.Resources.Ship; // Restablece la imagen del barco
             timer1.Start(); // Reinicia el temporizador
         }
+
     }
 }
