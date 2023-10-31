@@ -67,6 +67,18 @@ class PracticaParcial {
 }
 
     public static void ciclosAnidados(){
-
+        // Primer ciclo del 1 al 100
+        for(int nm=1; nm<=100; nm++){
+            int k=1, suma = 0;
+            while((k<nm)){
+                if((nm % k)== 0){
+                    suma = suma + k;
+                }
+                k++;
+            }
+            if(suma==nm){
+                System.out.println("El " + nm + " es perfecto");
+            }
+        }
     }
 }
