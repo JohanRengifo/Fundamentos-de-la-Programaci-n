@@ -41,11 +41,30 @@ class PracticaParcial {
     public static void tallerx(){
         Random azar = new Random();
         System.out.println("Taller Numero: " + azar.nextInt(21));
+
+        // 1 5 3 7  5 9 7 
+        System.out.print("Los Numeros Generados Son:");
+        for(int x=1, k=5; k<=23; x+=2, k+=2){
+            System.out.println(" " + x + " , " + k);
+        }
     }
 
     public static void numerosPerfectos(){
+    System.out.println("Ingrese un Numero: ");
+    int numero = digite.nextInt();
 
+    int k=1, suma = 0;
+    while(k<=numero){
+        System.out.println(" " + numero + " % " + k + " = " + (numero%k));
+        if((numero % k)== 0){
+            suma = suma + k;
+        }
+        k++;
     }
+    if(suma==numero){
+        System.out.println("El " + numero + " es perfecto");
+    }
+}
 
     public static void ciclosAnidados(){
 
