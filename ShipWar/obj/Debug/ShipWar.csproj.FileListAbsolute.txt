@@ -8,3 +8,13 @@ C:\Users\Estudiante\Downloads\ShipWar\bin\Debug\ShipWar.exe
 C:\Users\Estudiante\Downloads\ShipWar\bin\Debug\ShipWar.pdb
 C:\Users\Estudiante\Downloads\ShipWar\obj\Debug\ShipWar.exe
 C:\Users\Estudiante\Downloads\ShipWar\obj\Debug\ShipWar.pdb
+D:\laragon\www\Fundamentos\ShipWar\bin\Debug\ShipWar.exe.config
+D:\laragon\www\Fundamentos\ShipWar\bin\Debug\ShipWar.exe
+D:\laragon\www\Fundamentos\ShipWar\bin\Debug\ShipWar.pdb
+D:\laragon\www\Fundamentos\ShipWar\obj\Debug\ShipWar.csproj.AssemblyReference.cache
+D:\laragon\www\Fundamentos\ShipWar\obj\Debug\ShipWar.Fondo.resources
+D:\laragon\www\Fundamentos\ShipWar\obj\Debug\ShipWar.Properties.Resources.resources
+D:\laragon\www\Fundamentos\ShipWar\obj\Debug\ShipWar.csproj.GenerateResource.cache
+D:\laragon\www\Fundamentos\ShipWar\obj\Debug\ShipWar.csproj.CoreCompileInputs.cache
+D:\laragon\www\Fundamentos\ShipWar\obj\Debug\ShipWar.exe
+D:\laragon\www\Fundamentos\ShipWar\obj\Debug\ShipWar.pdb
