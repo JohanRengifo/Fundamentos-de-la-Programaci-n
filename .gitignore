@@ -1,2 +1,4 @@
 *.promt
 *.php
+*.class
+*.env
