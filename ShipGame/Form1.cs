@@ -156,6 +156,8 @@ namespace ShipGame
                         {
                             ReiniciarJuego();
                         }
+                        else reinicioar juego();
+                        Juego = game.Restart
                         else
                         {
                             FinalizarJuego();
