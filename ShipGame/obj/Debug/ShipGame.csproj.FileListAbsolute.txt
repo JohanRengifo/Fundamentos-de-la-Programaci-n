@@ -8,3 +8,10 @@ C:\Users\Estudiante\Downloads\Game\ShipGame\bin\Debug\ShipGame.exe
 C:\Users\Estudiante\Downloads\Game\ShipGame\bin\Debug\ShipGame.pdb
 C:\Users\Estudiante\Downloads\Game\ShipGame\obj\Debug\ShipGame.exe
 C:\Users\Estudiante\Downloads\Game\ShipGame\obj\Debug\ShipGame.pdb
+D:\laragon\www\Laboratorio\ShipGame\obj\Debug\ShipGame.csproj.AssemblyReference.cache
+D:\laragon\www\Laboratorio\ShipGame\obj\Debug\ShipGame.Fondo.resources
+D:\laragon\www\Laboratorio\ShipGame\obj\Debug\ShipGame.Properties.Resources.resources
+D:\laragon\www\Laboratorio\ShipGame\obj\Debug\ShipGame.csproj.GenerateResource.cache
+D:\laragon\www\Laboratorio\ShipGame\obj\Debug\ShipGame.csproj.CoreCompileInputs.cache
+D:\laragon\www\Laboratorio\ShipGame\obj\Debug\ShipGame.exe
+D:\laragon\www\Laboratorio\ShipGame\obj\Debug\ShipGame.pdb

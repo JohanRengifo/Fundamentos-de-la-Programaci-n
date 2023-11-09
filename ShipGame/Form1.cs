@@ -12,6 +12,7 @@ namespace ShipGame
 {
     public partial class Fondo : Form
     {
+        static Random aleatorio = new Random();
         int vidas = 2;
         int puntos = 0;
         int tiempoTranscurrido = 0;
@@ -66,15 +67,19 @@ namespace ShipGame
             }
         }
 
-        public void puntosAdicionales()
+        private void moneda(PictureBox coin)
         {
-
+            if (lancha.Bounds.IntersectsWith(coin.Bounds))
+            {
+                puntos += 5;
+                puntosLabel.Text = "Puntos: " + puntos;
+                coin.Location = new Point(aleatorio.Next(400) + 200, aleatorio.Next(300) + 100);
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             obstaculos();
-
             retorno(roca1);
             retorno(roca2);
             retorno(roca3);
@@ -105,40 +110,30 @@ namespace ShipGame
             colision(tiburon1);
             colision(tiburon2);
 
+            moneda(lancha);
         }
 
-        // Movimiento Recursos
-        public void obstaculos()
+        private void obstaculos()
         {
-            roca1.Left = roca1.Left - 10;
-            roca2.Left = roca2.Left - 10;
-            roca3.Left = roca3.Left - 10;
-            roca4.Left = roca4.Left - 10;
-            islarocosa1.Left = islarocosa1.Left - 10;
-            islarocosa2.Left = islarocosa2.Left - 10;
-            islarocosa3.Left = islarocosa3.Left - 10;
-            islarocosa4.Left = islarocosa4.Left - 10;
-            islasola1.Left = islasola1.Left - 10;
-            islasola2.Left = islasola2.Left - 10;
-            islasola3.Left = islasola3.Left - 10;
-            islasola4.Left = islasola4.Left - 10;
-            tiburon1.Left = tiburon1.Left - 10;
-            tiburon2.Left = tiburon2.Left - 10;
-        }
-        // Fin Movimiento Recursos
-
-        // Retornos
-        public void retorno(PictureBox obstaculo)
-        {
-            if (obstaculo.Location.X < -210)
+            foreach (PictureBox obstaculo in Controls.OfType<PictureBox>())
             {
-                obstaculo.Location = new Point(1800, obstaculo.Location.Y);
+                if (obstaculo.Name.StartsWith("roca") || obstaculo.Name.StartsWith("islarocosa") ||
+                    obstaculo.Name.StartsWith("islasola") || obstaculo.Name.StartsWith("tiburon"))
+                {
+                    obstaculo.Left -= 10;
+                }
             }
         }
-        // Fin Retornos
 
-        // Funcion Colision
-        public void colision(PictureBox colision)
+        private void retorno(PictureBox obstaculo)
+        {
+            if (obstaculo.Left < -210)
+            {
+                obstaculo.Location = new Point(1800, obstaculo.Top);
+            }
+        }
+
+        private void colision(PictureBox colision)
         {
             if (!juegoTerminado && lancha.Bounds.IntersectsWith(colision.Bounds))
             {
@@ -156,8 +151,6 @@ namespace ShipGame
                         {
                             ReiniciarJuego();
                         }
-                        else reinicioar juego();
-                        Juego = game.Restart
                         else
                         {
                             FinalizarJuego();
@@ -170,15 +163,13 @@ namespace ShipGame
                 }
             }
         }
-        // Fin Fincion Colision
 
-        // Funcion Vidas
-        public void quitarVidas()
+        private void quitarVidas()
         {
             switch (vidas)
             {
                 case 1:
-                    corazon1.Image = ShipGame.Properties.Resources.calavera; // Quita el Corazon por una Calavera
+                    corazon1.Image = ShipGame.Properties.Resources.calavera;
                     break;
                 case 2:
                     corazon2.Image = ShipGame.Properties.Resources.calavera;
@@ -186,9 +177,7 @@ namespace ShipGame
             }
             vidas--;
         }
-        // Fin Fincion Vidas
 
-        // Funcion para Reinicio de Juego
         private void ReiniciarJuego()
         {
             vidas = 1;
@@ -209,7 +198,7 @@ namespace ShipGame
             timer1.Stop();
             puntosTimer.Stop();
             juegoTerminadoTimer.Start();
-            MessageBox.Show("Terminaste el juego con " + puntos + " puntos!", "Cerrenado Juego",
+            MessageBox.Show("Terminaste el juego con " + puntos + " puntos!", "Cerrando Juego",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -218,39 +207,28 @@ namespace ShipGame
             juegoTerminadoTimer.Stop();
             Close();
         }
-        // Fin Funcion Reinicio de Juego
 
-        // Movimiento Barco
         private void Fondo_KeyDown(object sender, KeyEventArgs evento)
         {
-            //Hacia la Derecha
-            if (evento.KeyCode == Keys.Right)
+            if (!juegoTerminado)
             {
-                lancha.Left += 20;
+                if (evento.KeyCode == Keys.Right)
+                {
+                    lancha.Left += 20;
+                }
+                else if (evento.KeyCode == Keys.Left)
+                {
+                    lancha.Left -= 20;
+                }
+                else if (evento.KeyCode == Keys.Up)
+                {
+                    lancha.Top -= 20;
+                }
+                else if (evento.KeyCode == Keys.Down)
+                {
+                    lancha.Top += 20;
+                }
             }
-
-            // Hacia la Izquierda
-            if (evento.KeyCode == Keys.Left)
-            {
-                lancha.Left -= 20;
-            }
-
-            // Hacia Arriba
-            if (evento.KeyCode == Keys.Up)
-            {
-                lancha.Top -= 20;
-            }
-
-            //Hacia Abajo
-            if (evento.KeyCode == Keys.Down)
-            {
-                lancha.Top += 20;
-            }
-        }
-        // Fin Movimiento Barco
-        private void Fondo_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
