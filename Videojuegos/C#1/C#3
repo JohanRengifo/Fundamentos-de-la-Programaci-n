@@ -1,13 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Media;
+using System.Windows.Forms;
 
 namespace ShipGame
 {
@@ -19,66 +13,60 @@ namespace ShipGame
         int puntos = 0;
         int intentosRestantes = 2;
         bool juegoTerminado = false;
-        bool segundoNivel = false;
         int numeroObstaculo = 0;
 
         PictureBox roca1 = new PictureBox();
         PictureBox roca2 = new PictureBox();
-        PictureBox islarocosa1 = new PictureBox();
-        PictureBox islarocosa2 = new PictureBox();
 
         public Fondo()
         {
             InitializeComponent();
 
-            // Inicializar componentes
             InitializeComponents();
 
-            // Iniciar primer nivel
             IniciarPrimerNivel();
 
-            // Reproducir música de fondo
             musica_fondo.Play();
+            ponerNumeros();
 
-            // Iniciar el temporizador para el movimiento de obstáculos
             timer1.Start();
         }
 
         private void InitializeComponents()
         {
-            // Configurar el formulario y otros componentes según tus necesidades
-            // Puedes ajustar las propiedades del formulario, como el tamaño, color de fondo, etc.
-            // También puedes agregar otros controles necesarios para tu juego.
-            // Por ejemplo:
+            // Configuración del formulario
             this.Size = new Size(1200, 800);
             this.BackColor = Color.Blue;
 
-            // Configurar la lancha
+            // Configuración de la lancha
             lancha = new PictureBox();
             lancha.Size = new Size(50, 50);
             lancha.Image = ShipGame.Properties.Resources.ship;
             lancha.Location = new Point(100, 100);
             this.Controls.Add(lancha);
 
-            // Configurar otros controles según sea necesario...
+            // Configuración de los obstáculos
+            roca1.Size = new Size(50, 50);
+            roca1.Image = ShipGame.Properties.Resources.obstaculo1;
+            roca1.Location = new Point(800, 100);
+            this.Controls.Add(roca1);
+
+            roca2.Size = new Size(50, 50);
+            roca2.Image = ShipGame.Properties.Resources.obstaculo2;
+            roca2.Location = new Point(1000, 300);
+            this.Controls.Add(roca2);
         }
 
         private void IniciarPrimerNivel()
         {
-            roca1.Location = new Point(800, 100);
-            roca2.Location = new Point(1000, 300);
-
-            Controls.Add(roca1);
-            Controls.Add(roca2);
-
             AsignarNumeroAleatorio();
             ponerNumeros();
         }
 
         private void ponerNumeros()
         {
-            AsignarNumeroAleatorio();
             MuestraNumero(roca1, numeroObstaculo);
+            MuestraNumero(roca2, numeroObstaculo);
         }
 
         private void MuestraNumero(PictureBox obstaculo, int numero)
@@ -105,6 +93,7 @@ namespace ShipGame
             roca2.Left -= 10;
 
             MuestraNumero(roca1, numeroObstaculo);
+            MuestraNumero(roca2, numeroObstaculo);
 
             colision(roca1);
             colision(roca2);
@@ -183,28 +172,40 @@ namespace ShipGame
             Close();
         }
 
-        // Resto del código...
-
         private void Fondo_KeyDown(object sender, KeyEventArgs evento)
         {
-            // Movimiento de la lancha según las teclas presionadas
-            if (evento.KeyCode == Keys.Right)
+            if (!juegoTerminado)
             {
-                lancha.Left += 20;
-            }
-            else if (evento.KeyCode == Keys.Left)
-            {
-                lancha.Left -= 20;
-            }
-            else if (evento.KeyCode == Keys.Up)
-            {
-                lancha.Top -= 20;
-            }
-            else if (evento.KeyCode == Keys.Down)
-            {
-                lancha.Top += 20;
+                // Movimiento de la lancha según las teclas presionadas
+                if (evento.KeyCode == Keys.Right)
+                {
+                    lancha.Left += 20;
+                }
+                else if (evento.KeyCode == Keys.Left)
+                {
+                    lancha.Left -= 20;
+                }
+                else if (evento.KeyCode == Keys.Up)
+                {
+                    lancha.Top -= 20;
+                }
+                else if (evento.KeyCode == Keys.Down)
+                {
+                    lancha.Top += 20;
+                }
             }
         }
 
+        private void quitarVidas()
+        {
+            // Lógica para quitar vidas y actualizar la interfaz
+        }
+
+        // Otros eventos y métodos necesarios según tus necesidades...
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            obstaculos();
+        }
     }
 }
