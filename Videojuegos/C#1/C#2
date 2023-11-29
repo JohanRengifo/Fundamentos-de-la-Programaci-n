@@ -1,0 +1,213 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Media;
+
+namespace ShipGame
+{
+    public partial class Fondo : Form
+    {
+        SoundPlayer musica_fondo = new SoundPlayer(@"C:\Users\Estudiante\Music\musicgame\fondomusic.wav");
+        SoundPlayer choque = new SoundPlayer(@"C:\Users\Estudiante\Music\musicgame\choque.wav");
+        int vidas = 2;
+        int puntos = 0;
+        int intentosRestantes = 2;
+        bool juegoTerminado = false;
+        bool segundoNivel = false;
+        int numeroObstaculo = 0;
+
+        PictureBox roca1 = new PictureBox();
+        PictureBox roca2 = new PictureBox();
+        PictureBox islarocosa1 = new PictureBox();
+        PictureBox islarocosa2 = new PictureBox();
+
+        public Fondo()
+        {
+            InitializeComponent();
+
+            // Inicializar componentes
+            InitializeComponents();
+
+            // Iniciar primer nivel
+            IniciarPrimerNivel();
+
+            // Reproducir música de fondo
+            musica_fondo.Play();
+
+            // Iniciar el temporizador para el movimiento de obstáculos
+            timer1.Start();
+        }
+
+        private void InitializeComponents()
+        {
+            // Configurar el formulario y otros componentes según tus necesidades
+            // Puedes ajustar las propiedades del formulario, como el tamaño, color de fondo, etc.
+            // También puedes agregar otros controles necesarios para tu juego.
+            // Por ejemplo:
+            this.Size = new Size(1200, 800);
+            this.BackColor = Color.Blue;
+
+            // Configurar la lancha
+            lancha = new PictureBox();
+            lancha.Size = new Size(50, 50);
+            lancha.Image = ShipGame.Properties.Resources.ship;
+            lancha.Location = new Point(100, 100);
+            this.Controls.Add(lancha);
+
+            // Configurar otros controles según sea necesario...
+        }
+
+        private void IniciarPrimerNivel()
+        {
+            roca1.Location = new Point(800, 100);
+            roca2.Location = new Point(1000, 300);
+
+            Controls.Add(roca1);
+            Controls.Add(roca2);
+
+            AsignarNumeroAleatorio();
+            ponerNumeros();
+        }
+
+        private void ponerNumeros()
+        {
+            AsignarNumeroAleatorio();
+            MuestraNumero(roca1, numeroObstaculo);
+        }
+
+        private void MuestraNumero(PictureBox obstaculo, int numero)
+        {
+            Label numeroLabel = new Label();
+            numeroLabel.Text = numero.ToString();
+            numeroLabel.ForeColor = Color.White;
+            numeroLabel.AutoSize = true;
+            numeroLabel.Font = new Font("Arial", 12, FontStyle.Bold);
+            numeroLabel.Location = new Point(obstaculo.Location.X + obstaculo.Width / 2 - numeroLabel.Width / 2,
+                                             obstaculo.Location.Y + obstaculo.Height / 2 - numeroLabel.Height / 2);
+            Controls.Add(numeroLabel);
+        }
+
+        private void AsignarNumeroAleatorio()
+        {
+            Random aleatorio = new Random();
+            numeroObstaculo = aleatorio.Next(1, 10); // Números del 1 al 9
+        }
+
+        public void obstaculos()
+        {
+            roca1.Left -= 10;
+            roca2.Left -= 10;
+
+            MuestraNumero(roca1, numeroObstaculo);
+
+            colision(roca1);
+            colision(roca2);
+        }
+
+        private void colision(PictureBox colision)
+        {
+            if (!juegoTerminado && lancha.Bounds.IntersectsWith(colision.Bounds))
+            {
+                VerificarColision(numeroObstaculo);
+            }
+        }
+
+        private void VerificarColision(int numero)
+        {
+            char numeroPresionado = ObtenerLetraPresionada();
+
+            if (numeroPresionado == Convert.ToChar(numero + 48))
+            {
+                puntos += 100;
+                puntosLabel.Text = "Puntos: " + puntos;
+                ponerNumeros();
+            }
+            else
+            {
+                lancha.Image = ShipGame.Properties.Resources.barcodestroy;
+                timer1.Stop();
+                quitarVidas();
+                if (vidas > 0)
+                {
+                    if (intentosRestantes > 0)
+                    {
+                        intentosRestantes--;
+                        DialogResult result = MessageBox.Show("¿Deseas reiniciar el juego?", "Game Over",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            ReiniciarJuego();
+                        }
+                        else
+                        {
+                            FinalizarJuego();
+                        }
+                    }
+                }
+                else
+                {
+                    FinalizarJuego();
+                }
+            }
+        }
+
+        private char ObtenerLetraPresionada()
+        {
+            return Convert.ToChar(numeroObstaculo + 48);
+        }
+
+        private void ReiniciarJuego()
+        {
+            vidas = 2;
+            puntos = 0;
+            intentosRestantes = 2;
+            puntosLabel.Text = "Puntos: 0";
+            lancha.Location = new Point(100, 100);
+            lancha.Image = ShipGame.Properties.Resources.ship;
+            timer1.Start();
+            ponerNumeros();
+        }
+
+        private void FinalizarJuego()
+        {
+            juegoTerminado = true;
+            timer1.Stop();
+            MessageBox.Show("Terminaste el juego con " + puntos + " puntos!", "Cerrando Juego",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Close();
+        }
+
+        // Resto del código...
+
+        private void Fondo_KeyDown(object sender, KeyEventArgs evento)
+        {
+            // Movimiento de la lancha según las teclas presionadas
+            if (evento.KeyCode == Keys.Right)
+            {
+                lancha.Left += 20;
+            }
+            else if (evento.KeyCode == Keys.Left)
+            {
+                lancha.Left -= 20;
+            }
+            else if (evento.KeyCode == Keys.Up)
+            {
+                lancha.Top -= 20;
+            }
+            else if (evento.KeyCode == Keys.Down)
+            {
+                lancha.Top += 20;
+            }
+        }
+
+        // Otros eventos y métodos necesarios según tus necesidades...
+
+        // Resto del código...
+    }
+}
