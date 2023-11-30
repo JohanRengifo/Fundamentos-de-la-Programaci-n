@@ -1,5 +1,5 @@
 
-# Juego de Preguntas y Respuestas
+# Juego Programador Millonario
 
 Este es un simple juego de preguntas y respuestas implementado en Java con una interfaz gráfica de usuario (GUI). El juego consta de un controlador (`PreguntasController`) que gestiona las preguntas y respuestas, y una interfaz de usuario (`UI`) que permite al jugador interactuar con el juego.
 
