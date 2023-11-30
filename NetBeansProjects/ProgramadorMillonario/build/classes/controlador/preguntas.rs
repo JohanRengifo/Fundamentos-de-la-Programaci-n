@@ -1,0 +1,2 @@
+controlador.PreguntasController
+controlador.preguntas
