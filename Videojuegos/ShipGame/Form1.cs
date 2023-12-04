@@ -8,15 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
-using NAudio.Wave;
-using Drawing.Image;
-
+using NAudio.Wave; 
+using System.Drawing;
 
 namespace ShipGame
 {
     public partial class Fondo : Form
     {
-        // Musica
         SoundPlayer musica_fondo = new SoundPlayer(@"C:\Users\Estudiante\Music\musicgame\fondomusic.wav");
         SoundPlayer choque = new SoundPlayer(@"C:\Users\Estudiante\Music\musicgame\choque.wav");
         int numero = 0;
@@ -31,77 +29,65 @@ namespace ShipGame
         private IWavePlayer fondo;
         private WaveFileReader fr;
 
-
         public Fondo()
         {
             InitializeComponent();
+            InitializeTimers();
+            InitializeSound();
+            ponerNumeros();
+        }
+
+        private void InitializeTimers()
+        {
             puntosTimer.Interval = 1000;
             puntosTimer.Tick += PuntosTimer_Tick;
             puntosTimer.Start();
 
             juegoTerminadoTimer.Interval = 1000;
             juegoTerminadoTimer.Tick += JuegoTerminadoTimer_Tick;
+        }
 
-            musica_fondo.Play(); // Reproduce la Musica de Fondo
-
+        private void InitializeSound()
+        {
+            musica_fondo.Play();
             fondo = new WaveOutEvent();
             fr = new WaveFileReader(@"C:\Users\Estudiante\Music\musicgame\fondomusic.wav");
             fondo.Init(fr);
             fondo.Play();
-            ponerNumeros();
-
         }
+
         public void ponerNumeros()
         {
             Random aleatorio = new Random();
             numero = aleatorio.Next(9);
             moneda.Location = new Point(aleatorio.Next(1100), aleatorio.Next(800));
-            moneda.Image = Image.FromFile(@"C:\Users\Estudiante\Downloads\V#\GameCopy\imagen_numeros" + numero+".png");
-
-
+            // moneda.Image = Image.FromFile(@"C:\Users\Estudiante\Downloads\V#\GameCopy\imagen_numeros" + numero + ".png");
         }
 
         private void PuntosTimer_Tick(object sender, EventArgs e)
         {
             tiempoTranscurrido++;
 
-
             if (tiempoTranscurrido % 60 == 0)
-            {
                 puntos += 55;
-            }
             else if (tiempoTranscurrido % 24 == 0)
-            {
                 puntos += 33;
-            }
             else if (tiempoTranscurrido % 16 == 0)
-            {
                 puntos += 22;
-            }
             else if (tiempoTranscurrido % 8 == 0)
-            {
                 puntos += 14;
-            }
             else if (tiempoTranscurrido % 4 == 0)
-            {
                 puntos += 2;
-            }
 
             puntosLabel.Text = "Puntos: " + puntos;
 
-            // Verificar si se alcanzaron 600 puntos para finalizar el juego
-            if (puntos >= 600)
-            {
-                FinalizarJuego();
+            if (puntos >= 600 && !juegoTerminado)
                 segundoNivel();
-            }
         }
-
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             obstaculos();
-
             retorno(roca1);
             retorno(roca2);
             retorno(roca3);
@@ -131,10 +117,8 @@ namespace ShipGame
             colision(islasola4);
             colision(tiburon1);
             colision(tiburon2);
-
         }
 
-        // Movimiento Recursos
         public void obstaculos()
         {
             roca1.Left = roca1.Left - 10;
@@ -152,9 +136,7 @@ namespace ShipGame
             tiburon1.Left = tiburon1.Left - 10;
             tiburon2.Left = tiburon2.Left - 10;
         }
-        // Fin Movimiento Recursos
 
-        // Retornos
         public void retorno(PictureBox obstaculo)
         {
             if (obstaculo.Location.X < -210)
@@ -162,9 +144,7 @@ namespace ShipGame
                 obstaculo.Location = new Point(1800, obstaculo.Location.Y);
             }
         }
-        // Fin Retornos
 
-        // Funcion Colision
         public void colision(PictureBox colision)
         {
             if (!juegoTerminado && lancha.Bounds.IntersectsWith(colision.Bounds))
@@ -195,17 +175,14 @@ namespace ShipGame
                     FinalizarJuego();
                 }
             }
-            
         }
-        // Fin Fincion Colision
 
-        // Funcion Vidas
         public void quitarVidas()
         {
             switch (vidas)
             {
                 case 1:
-                    corazon1.Image = ShipGame.Properties.Resources.calavera; // Quita el Corazon por una Calavera
+                    corazon1.Image = ShipGame.Properties.Resources.calavera;
                     break;
                 case 2:
                     corazon2.Image = ShipGame.Properties.Resources.calavera;
@@ -213,25 +190,8 @@ namespace ShipGame
             }
             vidas--;
         }
-        // Fin Fincion Vidas
 
-        // Segundo Nivel
         private void segundoNivel()
-        {
-            vidas = 1;
-            puntos = 0;
-            intentosRestantes = 1;
-            puntosLabel.Text = "Puntos: 0";
-            MessageBox.Show("¿Deseas reiniciar el juego?");
-            corazon1.Image = ShipGame.Properties.Resources.corazon;
-            corazon2.Image = ShipGame.Properties.Resources.calavera;
-            lancha.Location = new Point(Location.X, Location.Y);
-            lancha.Image = ShipGame.Properties.Resources.ship;
-        }
-        // Fin Segundo Nivel
-
-        // Funcion para Reinicio de Juego
-        private void ReiniciarJuego()
         {
             vidas = 1;
             puntos = 0;
@@ -240,9 +200,27 @@ namespace ShipGame
             puntosLabel.Text = "Puntos: 0";
             corazon1.Image = ShipGame.Properties.Resources.corazon;
             corazon2.Image = ShipGame.Properties.Resources.calavera;
+            lancha.Location = new Point(100, 100);
+            this.BackColor = Color.Red;
+            lancha.Image = ShipGame.Properties.Resources.ship;
+            MessageBox.Show("¡Felicidades! Has alcanzado 600 puntos. ¡Pasando al segundo nivel!");
+            // Reiniciar el juego
+            ReiniciarJuego();
+        }
+
+        private void ReiniciarJuego()
+        {
+            tiempoTranscurrido = 0;
+            puntosLabel.Text = "Puntos: 0";
+            corazon1.Image = ShipGame.Properties.Resources.corazon;
+            corazon2.Image = ShipGame.Properties.Resources.calavera;
             lancha.Location = new Point(Location.X, Location.Y);
             lancha.Image = ShipGame.Properties.Resources.ship;
             timer1.Start();
+            juegoTerminado = false;
+            puntosTimer.Start();
+            if (puntos >= 600 && !juegoTerminado)
+                segundoNivel();
         }
 
         private void FinalizarJuego()
@@ -251,7 +229,7 @@ namespace ShipGame
             timer1.Stop();
             puntosTimer.Stop();
             juegoTerminadoTimer.Start();
-            MessageBox.Show("Terminaste el juego con " + puntos + " puntos!", "Cerrenado Juego",
+            MessageBox.Show("Terminaste el juego con " + puntos + " puntos!", "Cerrando Juego",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -260,35 +238,27 @@ namespace ShipGame
             juegoTerminadoTimer.Stop();
             Close();
         }
-        // Fin Funcion Reinicio de Juego
 
-        // Movimiento Barco
         private void Fondo_KeyDown(object sender, KeyEventArgs evento)
         {
-            //Hacia la Derecha
+            if (juegoTerminado) return;  // Evitar movimientos del barco cuando el juego ha terminado
+
             if (evento.KeyCode == Keys.Right)
             {
                 lancha.Left += 20;
             }
-
-            // Hacia la Izquierda
-            if (evento.KeyCode == Keys.Left)
+            else if (evento.KeyCode == Keys.Left)
             {
                 lancha.Left -= 20;
             }
-
-            // Hacia Arriba
-            if (evento.KeyCode == Keys.Up)
+            else if (evento.KeyCode == Keys.Up)
             {
                 lancha.Top -= 20;
             }
-
-            //Hacia Abajo
-            if (evento.KeyCode == Keys.Down)
+            else if (evento.KeyCode == Keys.Down)
             {
                 lancha.Top += 20;
             }
         }
-        // Fin Movimiento Barco
     }
 }
