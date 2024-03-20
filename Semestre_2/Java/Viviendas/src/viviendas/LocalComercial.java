@@ -1,6 +1,5 @@
 package viviendas;
 
-
 public class LocalComercial extends Local {
     private String centroComercial;
 
