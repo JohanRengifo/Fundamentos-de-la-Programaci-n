@@ -1,4 +1,4 @@
-package viviendas;
+package inmueble;
 
 public class CasaIndependiente extends Casa {
     public CasaIndependiente(int identificadorInmobiliario, int areaMetrosCuadrados, String direccion, int numHabitaciones, int numBanos, int cantidadPisos) {

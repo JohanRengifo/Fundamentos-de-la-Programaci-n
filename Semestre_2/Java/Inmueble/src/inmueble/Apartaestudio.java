@@ -1,4 +1,4 @@
-package viviendas;
+package inmueble;
 
 public class Apartaestudio extends Apartamento {
     public Apartaestudio(int identificadorInmobiliario, int areaMetrosCuadrados, String direccion, double valorAdministracion) {

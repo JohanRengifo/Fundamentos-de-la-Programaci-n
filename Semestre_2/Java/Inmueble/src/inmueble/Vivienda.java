@@ -1,4 +1,4 @@
-package viviendas;
+package inmueble;
 
 public class Vivienda extends Inmueble {
     private int numHabitaciones;

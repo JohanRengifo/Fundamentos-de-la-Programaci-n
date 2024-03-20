@@ -1,4 +1,4 @@
-package viviendas;
+package inmueble;
 
 public class LocalComercial extends Local {
     private String centroComercial;

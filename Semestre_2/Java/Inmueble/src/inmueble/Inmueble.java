@@ -1,4 +1,4 @@
-package viviendas;
+package inmueble;
 
 public class Inmueble {
     private int identificadorInmobiliario;

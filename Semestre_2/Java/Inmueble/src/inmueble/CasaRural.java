@@ -1,4 +1,4 @@
-package viviendas;
+package inmueble;
 
 public class CasaRural extends Casa {
     private int distanciaCabeceraMunicipal;

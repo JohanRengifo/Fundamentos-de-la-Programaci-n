@@ -1,4 +1,4 @@
-package viviendas;
+package inmueble;
 
 public class Apartamento extends Vivienda {
     private double valorAdministracion;

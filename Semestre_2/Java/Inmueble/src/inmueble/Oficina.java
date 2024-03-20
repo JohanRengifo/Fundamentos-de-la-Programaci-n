@@ -1,4 +1,4 @@
-package viviendas;
+package inmueble;
 
 public class Oficina extends Local {
     private boolean esDelGobierno;

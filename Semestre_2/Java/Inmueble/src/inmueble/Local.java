@@ -1,4 +1,4 @@
-package viviendas;
+package inmueble;
 
 public class Local extends Inmueble {
     private String localizacion;

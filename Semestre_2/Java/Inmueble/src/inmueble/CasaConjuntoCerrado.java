@@ -1,4 +1,4 @@
-package viviendas;
+package inmueble;
 
 public class CasaConjuntoCerrado extends Casa {
     private double valorAdministracion;
