@@ -80,6 +80,7 @@ public class Main {
         System.out.println("Identificador inmobiliario: " + inmueble.getIdentificadorInmobiliario());
         System.out.println("Área en metros cuadrados: " + inmueble.getAreaMetrosCuadrados() + " m2");
         System.out.println("Dirección: " + inmueble.getDireccion());
+        // ############ FIN ###########
         if (inmueble instanceof Vivienda) {
             Vivienda vivienda = (Vivienda) inmueble;
             System.out.println("Número de habitaciones: " + vivienda.getNumHabitaciones());
